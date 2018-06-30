@@ -1,0 +1,10 @@
+<div class="nested-fields">
+  <div class="form-group">
+    <%= f.hidden_field :user_id, :value => session[:user_id] %>
+    <%= f.text_area :question, class: "form-control" %>
+    <%= f.text_area :answer, class: "form-control" %>
+    <%= link_to_remove_association "Remove Question", f %>
+  </div>
+  <hr/>
+
+</div>

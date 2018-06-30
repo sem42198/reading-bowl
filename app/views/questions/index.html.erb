@@ -1,0 +1,10 @@
+<h1>Practice Questions</h1>
+<%= bootstrap_form_for :practice_data do |form| %>
+  <%= form.select :books, Book.all.collect {|b| [b.title, b.id]}, {}, {:multiple=>true} %>
+  <div class="field form-group">
+    <div class="checkbox-inline">
+      <%= form.check_box :starred_only %>
+    </div>
+  </div>
+  <%= form.submit "Practice", class: "btn btn-block btn-lg btn-primary" %>
+<% end %>

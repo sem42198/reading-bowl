@@ -1,0 +1,17 @@
+<h1>Write Questions</h1>
+
+<%= bootstrap_form_for Book.new, :url => '/questions/new' do |f| %>
+  <%= f.select :book_id, Book.all.collect {|b| [ b.title, b.id ] }, {:selected => cookies[:book_id]} %>
+  <hr/>
+  <fieldset id="questions">
+    <%= f.fields_for  :questions do |question| %>
+      <%= render 'question_fields', :f => question %>
+    <% end %>
+      <div class="links">
+        <%= link_to_add_association 'Add Question', f, :questions %>
+      </div>
+  </fieldset>
+  <hr/>
+  <%= f.submit "Submit", :method => :post %>
+<% end %>
+

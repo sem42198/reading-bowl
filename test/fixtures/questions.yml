@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  book_id: 1
+  question: MyString
+  answer: MyString
+  starred: false
+  written_by: 1
+
+two:
+  book_id: 1
+  question: MyString
+  answer: MyString
+  starred: false
+  written_by: 1

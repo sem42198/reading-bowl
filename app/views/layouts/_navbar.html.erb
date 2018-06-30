@@ -1,0 +1,19 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "Reading Bowl", '/', id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% current_user = user %>
+        <% if current_user.present? %>
+          <% if current_user.instructor? %>
+            <%= render 'layouts/instructor_navbar' %>
+          <% else %>
+            <%= render 'layouts/student_navbar' %>
+          <% end %>
+        <% else %>
+          <%= render 'layouts/logged_out_navbar' %>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

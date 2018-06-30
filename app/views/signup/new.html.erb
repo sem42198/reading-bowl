@@ -1,0 +1,10 @@
+<h1>Login</h1>
+<%= bootstrap_form_for :account do |form| %>
+  <%= form.email_field :email, class: "input-lg" %>
+  <%= form.text_field :username, class: "input-lg" %>
+  <%= form.password_field :password, class: "input-lg" %>
+  <%= form.password_field :confirm_password, class: "input-lg" %>
+  <%= form.text_field :first_name, class: "input-lg"  %>
+  <%= form.text_field :last_name, class: "input-lg" %>
+  <%= form.submit "Create Account", class: "btn btn-block btn-lg btn-primary" %>
+<% end %>

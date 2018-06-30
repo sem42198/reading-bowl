@@ -1,0 +1,2 @@
+module Concerns::WelcomeHelper
+end
