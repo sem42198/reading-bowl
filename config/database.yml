@@ -13,7 +13,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
+  username: rb_dev
   password:
   host: localhost
 
@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: ReadingBowl
-  username: ReadingBowl
+  username: rb
   password: <%= ENV['READINGBOWL_DATABASE_PASSWORD'] %>
