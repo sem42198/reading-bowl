@@ -68,7 +68,6 @@
     <orderEntry type="library" scope="PROVIDED" name="mysql2 (v0.5.1, ruby-2.4.3-p205) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.3.1, ruby-2.4.3-p205) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.8.3, ruby-2.4.3-p205) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="passenger (v5.3.3, ruby-2.4.3-p205) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="public_suffix (v3.0.2, ruby-2.4.3-p205) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v3.11.4, ruby-2.4.3-p205) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.0.5, ruby-2.4.3-p205) [gem]" level="application" />

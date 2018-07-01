@@ -50,6 +50,6 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
-  database: ReadingBowl
+  database: <%= ENV['DATABASE_NAME'] %>
   username: rb
   password: <%= ENV['READINGBOWL_DATABASE_PASSWORD'] %>
