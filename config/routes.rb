@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get 'books/new' => 'books#new'
   post 'books/new' => 'books#create'
 
-  get 'signup' => 'signup#new'
-  post 'signup' => 'signup#create'
+  get 'signup' => 'users#new'
+  post 'signup' => 'users#create'
 
   root :to => 'welcome#index'
 

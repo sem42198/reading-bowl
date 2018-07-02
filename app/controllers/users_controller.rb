@@ -1,4 +1,7 @@
-class SignupController < ApplicationController
+class UsersController < ApplicationController
+
+  skip_before_action :validate_user
+
   def new
   end
 
@@ -6,11 +9,15 @@ class SignupController < ApplicationController
     @user = User.new(account_params)
 
     if @user.save
-      cookies.signed[:user_id] = @user.id
+      session[:user_id] = @user.id
       redirect_to '/user_home'
     else
       render :new
     end
+  end
+
+  def edit
+    @user = user
   end
 
   def account_params

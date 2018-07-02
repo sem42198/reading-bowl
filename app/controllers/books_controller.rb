@@ -1,10 +1,12 @@
 class BooksController < ApplicationController
+
+  before_action :validate_admin, only: [:manage, :new, :create]
+
   def index
     @books = Book.all
   end
 
   def manage
-    check_admin_permission
   end
 
   def show
@@ -12,11 +14,9 @@ class BooksController < ApplicationController
   end
 
   def new
-    check_admin_permission
   end
 
   def create
-    return unless check_admin_permission
     @book = Book.new(book_params)
 
     if @book.save
