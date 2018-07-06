@@ -1,31 +1,64 @@
 class UsersController < ApplicationController
 
-  skip_before_action :validate_user
+  skip_before_action :validate_user, :only => [:new, :create]
+  before_action :validate_admin, :only => [:index]
 
   def new
+    @create_admin = params[:admin]
+    validate_admin if @create_admin
   end
 
   def create
     @user = User.new(account_params)
 
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to '/user_home'
-    else
-      render :new
+    if @user.student? || validate_admin
+
+      if @user.save
+        session[:user_id] ||= @user.id
+        redirect_to '/user_home'
+      else
+        render :new
+      end
     end
+  end
+
+  def index
+  end
+
+  def show
+    @user = User.find(params[:id])
+    validate_admin unless @user == user
   end
 
   def edit
     @user = user
   end
 
+  def update
+    @user = user
+    data = update_params
+    if data && @user.update_attributes(data)
+      redirect_to "/users/#{@user.id}"
+    else
+      render :edit
+    end
+  end
+
+  def update_params
+    update_params = params.require(:user)
+    return nil unless @user.authenticate(update_params[:old_password])
+    check_password_match(update_params)
+    update_params.permit(:email, :first_name, :last_name, :password)
+  end
+
   def account_params
     account_params = params.require(:account)
-    account_params[:user_type] = 'student'
-    account_params[:hours_practiced] = 0.0
-    account_params[:password] = nil unless account_params[:password] == account_params[:confirm_password]
+    check_password_match(account_params)
     account_params.permit(:email, :username, :password, :first_name, :last_name,
                           :user_type, :hours_practiced)
+  end
+
+  def check_password_match(params)
+    params[:password] = nil unless params[:password] == params[:confirm_password]
   end
 end

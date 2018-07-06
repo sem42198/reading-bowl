@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'questions' => 'questions#index'
   post 'questions' => 'questions#practice'
   get 'questions/show/:id' => 'questions#show'
+  get 'questions/next' => 'questions#next_question'
   get 'questions/new' => 'questions#new'
   post 'questions/new' => 'questions#create'
 
@@ -14,6 +15,12 @@ Rails.application.routes.draw do
 
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'
+
+  get 'users' => 'users#index'
+  get 'users/:id' => 'users#show'
+
+  get 'account/edit' => 'users#edit'
+  post 'account/edit'=> 'users#update'
 
   root :to => 'welcome#index'
 
