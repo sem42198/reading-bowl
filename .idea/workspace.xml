@@ -1,35 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e003c32a-85de-45ee-b2b7-86f8a5598ccd" name="Default" comment="added some user management">
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change beforePath="$PROJECT_DIR$/.idea/ReadingBowl.iml" afterPath="$PROJECT_DIR$/.idea/ReadingBowl.iml" />
+    <list default="true" id="e003c32a-85de-45ee-b2b7-86f8a5598ccd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/questions.coffee" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/books.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/books.scss" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/concerns/welcome.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/concerns/welcome.scss" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/questions.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/questions.scss" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/sessions.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/sessions.scss" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/user_home.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/user_home.scss" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/users.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/users.scss" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/welcome.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/welcome.scss" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/questions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/questions_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_instructor_navbar.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_instructor_navbar.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_logged_out_navbar.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_logged_out_navbar.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_navbar.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_navbar.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_student_navbar.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_student_navbar.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/questions/index.html.erb" afterPath="$PROJECT_DIR$/app/views/questions/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/questions/new.html.erb" afterPath="$PROJECT_DIR$/app/views/questions/new.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/questions/show.html.erb" afterPath="$PROJECT_DIR$/app/views/questions/show.html.erb" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/assets.rb" afterPath="$PROJECT_DIR$/config/initializers/assets.rb" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -538,7 +511,7 @@
       <workItem from="1530491961652" duration="3228000" />
       <workItem from="1530583205165" duration="18457000" />
       <workItem from="1532213740574" duration="26271000" />
-      <workItem from="1532978322853" duration="14708000" />
+      <workItem from="1532978322853" duration="14753000" />
     </task>
     <task id="LOCAL-00001" summary="updates to configurations">
       <created>1530390579648</created>
@@ -582,11 +555,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530837485727</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updates to question view">
+      <created>1533073395201</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1533073395201</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141689000" />
+    <option name="totallyTimeSpent" value="141734000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1046" extended-state="6" />
@@ -643,7 +623,8 @@
     <MESSAGE value="production database option" />
     <MESSAGE value="some improvements to security" />
     <MESSAGE value="added some user management" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some user management" />
+    <MESSAGE value="updates to question view" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates to question view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -810,6 +791,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -842,6 +824,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="26" column="6" lean-forward="false" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+          <folding>
+            <marker date="1532805244497" expanded="true" signature="369:383" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
