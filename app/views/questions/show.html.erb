@@ -1,3 +1,46 @@
-<h1>In the book, <%= @book.title %>, <%= @question.question %></h1>
-<h1><%= @question.answer %></h1>
-<%= button_to 'Next', '/questions/next', :method => :get %>
+<div class="row">
+  <%= csrf_meta_tag %>
+
+  <div hidden id="question-id">
+    <%= @question.id %>
+  </div>
+
+  <div class="right">
+    <%= link_to image_tag('edit-button.png', :class => 'button-img'), "/questions/#{@question.id}/edit" %>
+    <div id="star">
+      <%= image_tag 'star.png', :class => 'button-img', :id => 'blank-star' %>
+      <%= image_tag 'yellow-star.png', :class => 'button-img', :id => 'yellow-star' %>
+    </div>
+    <script>
+      <% if @question.starred %>
+        $("#blank-star").hide();
+      <% else %>
+        $("#yellow-star").hide();
+      <% end %>
+    </script>
+  </div>
+</div>
+<div class="row">
+  <div id="question-card">
+    <div class="front">
+      <div class="question-card-body">
+        <div class="card-text">
+          In the book, <%= @book.title %>, <%= @question.question %>
+        </div>
+      </div>
+    </div>
+    <div class="back">
+      <div class="question-card-body">
+        <div class="card-text">
+          <%= @question.answer %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="position: absolute; left: 78vw; top: 50%; transform: translateY(-50%);">
+    <%= link_to image_tag('next-button.png', :class => 'button-img'), '/questions/next' %>
+  </div>
+</div>
+
+
+

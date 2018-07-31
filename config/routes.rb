@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   get 'questions' => 'questions#index'
   post 'questions' => 'questions#practice'
-  get 'questions/show/:id' => 'questions#show'
+  get 'questions/:id/show' => 'questions#show'
+  post 'questions/:id/star_toggle' => 'questions#star_toggle'
+  get 'questions/:id/edit' => 'questions#edit'
+  post 'questions/:id/edit' => 'questions#update'
   get 'questions/next' => 'questions#next_question'
   get 'questions/new' => 'questions#new'
   post 'questions/new' => 'questions#create'

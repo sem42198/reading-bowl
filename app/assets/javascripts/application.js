@@ -11,6 +11,12 @@
 // about supported directives.
 //
 //= require jquery3
-//= require jquery_ujs
+//= require popper
+//= require bootstrap
 //= require cocoon
 //= require_tree .
+
+$.ajaxSetup({
+    headers:
+        { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+});

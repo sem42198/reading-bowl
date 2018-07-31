@@ -14,16 +14,17 @@ class UsersController < ApplicationController
     if @user.student? || validate_admin
 
       if @user.save
+        flash[:success] = 'Account created.'
         session[:user_id] ||= @user.id
         redirect_to '/user_home'
       else
+        flash[:danger] = 'Error creating account.'
         render :new
       end
     end
   end
 
-  def index
-  end
+  def index; end
 
   def show
     @user = User.find(params[:id])
@@ -38,8 +39,10 @@ class UsersController < ApplicationController
     @user = user
     data = update_params
     if data && @user.update_attributes(data)
+      flash[:success] = 'Account updated.'
       redirect_to "/users/#{@user.id}"
     else
+      flash[:danger] = 'Update failed.'
       render :edit
     end
   end

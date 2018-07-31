@@ -1,2 +1,7 @@
-<li><%= link_to "Home",   '/user_home' %></li>
-<li><%= link_to "Logout", '/logout' %></li>
+<%= navbar_group :align => 'right' do %>
+  <%= navbar_item "Home", '/user_home' %>
+  <%= navbar_item 'My Account', "/users/#{user.id}" %>
+  <%= navbar_item "Practice Questions", '/questions' %>
+  <%= navbar_item "Write Questions", '/questions/new' %>
+  <%= navbar_item "Logout", '/logout' %>
+<% end %>

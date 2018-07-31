@@ -1,3 +1,23 @@
 // Place all the styles related to the questions controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.question-card-body {
+  height: 60vh;
+  width: 50vw;
+  padding: 2vw;
+  position: relative;
+  left: 17vw;
+  top: 0;
+  margin: 2vw;
+  border: thin solid lightgrey;
+  background-color: white;
+  .card-text {
+    width: 60%;
+    text-align: center;
+    font-size: xx-large;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(0, -50%);
+  }
+}

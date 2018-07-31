@@ -1,3 +1,4 @@
-<li><%= link_to "Home",   '/' %></li>
-<li><%= link_to "Log in", '/login' %></li>
-<li><%= link_to "Sign up", '/signup' %></li>
+<%= navbar_group :align => 'right' do %>
+  <%= navbar_item "Log in", '/login' %>
+  <%= navbar_item "Sign up", '/signup' %>
+<% end %>
