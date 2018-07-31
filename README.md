@@ -1,24 +1,7 @@
-# README
+# Reading Bowl Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Purpose
+This is an educational application specifically meant for training for the reading bowl. It allows for writing and practicing questions as well as keeping track of student points.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Deployment
+This is a Rails application and can be easily deployed on AWS elastic beanstalk.
