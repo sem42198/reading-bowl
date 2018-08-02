@@ -1,6 +1,7 @@
 class Question < ApplicationRecord
   has_one :user
   belongs_to :book
+  has_many :answer_events
 
   validates :book_id, :presence => true
   validates :question, :presence => true

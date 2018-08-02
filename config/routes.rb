@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   get 'users' => 'users#index'
   get 'users/:id' => 'users#show'
+  post 'users/:user_id/answers/:question_id' => 'answer_events#create'
 
   get 'account/edit' => 'users#edit'
   post 'account/edit'=> 'users#update'

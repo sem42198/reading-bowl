@@ -28,6 +28,11 @@ body {
   max-height: 5vh;
   max-width: 5vw;
   margin: 1vh;
+  cursor: pointer;
+}
+
+.button-img:hover {
+  filter: brightness(75%);
 }
 
 .right {
@@ -35,3 +40,36 @@ body {
   right: 0;
   padding: 2vh;
 }
+
+.alert {
+  margin: 2vh;
+  width: 100%;
+}
+
+.icon-group {
+  width: 100%;
+  display: inline-grid;
+  grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
+  .icon {
+    cursor: pointer;
+    padding: 5px;
+    width: 10vw;
+    margin: 1vh;
+    .icon-img {
+      width: 60%;
+      margin-left: 20%;
+      margin-right: 20%;
+    }
+    .icon-text {
+      width: 100%;
+      text-align: center;
+    }
+    .icon-button {
+      min-width: 100%;
+    }
+  }
+  .icon:hover {
+    border: solid #006dcc;
+  }
+}
+

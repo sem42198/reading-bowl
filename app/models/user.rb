@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_many :questions
+  has_many :answer_events
 
   enum user_type: [ :student, :instructor ]
 

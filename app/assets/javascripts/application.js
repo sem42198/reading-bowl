@@ -20,3 +20,19 @@ $.ajaxSetup({
     headers:
         { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
 });
+
+$(function() {
+    $(".icon-button").hide();
+    $(".icon").each(function (index) {
+        $(this).click(function () {
+            var iconGroup = $(this).parent();
+            iconGroup.find('.icon-button').hide();
+            var value = iconGroup.find("#value").text($(this).attr('id'));
+            iconGroup.children().each(function () {
+                $(this).css('border', '');
+            });
+            $(this).css('border', 'solid #0044cc');
+            $(this).children('.icon-button').show();
+        });
+    });
+});

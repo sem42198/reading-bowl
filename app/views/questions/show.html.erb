@@ -42,5 +42,13 @@
   </div>
 </div>
 
+<% if user.instructor? %>
+  <div class="row">
+    <% icons = User.where(:user_type => :student).collect {|u| [u.id, "#{u.first_name} #{u.last_name}"]} %>
+    <%= icon_group 'answered_by', icons, 'profile-default.png' %>
+  </div>
+<% end %>
+
+
 
 
