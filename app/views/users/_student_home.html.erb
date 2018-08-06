@@ -1,0 +1,3 @@
+<p style="font-size: large;">You have <b><%= @user.points %></b> points! Keep up the great work!</p>
+<h2>Leader Board</h2>
+<%= render :partial => 'leader_board', :locals => {:num => 5} %>

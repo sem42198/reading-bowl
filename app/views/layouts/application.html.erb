@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>ReadingBowl</title>
     <%= csrf_meta_tags %>
@@ -21,6 +21,8 @@
           <%= content_tag :div, msg, class: "alert alert-#{name}" %>
         <% end -%>
       </div>
+
+      <br>
 
       <%= yield %>
 

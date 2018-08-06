@@ -50,6 +50,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap'
+gem 'bootstrap-table-rails'
 gem "bootstrap_form", ">= 4.0.0.alpha1"
 gem "rails_bootstrap_navbar"
 gem 'autoprefixer-rails'

@@ -1,4 +1,29 @@
 <h1>Books</h1>
-<% @books.each do |book| %>
-  <%= render 'books/book_listing', :book => book %>
-<% end %>
+<div id="book-toolbar">
+  <% if user.instructor? %>
+    <%= link_to 'Add Book', '/books/new', :class => 'btn btn-primary' %>
+  <% end %>
+</div>
+<table id="book-table" data-unique-id="id" data-toggle="table" data-search="true" data-toolbar="#book-toolbar">
+  <thead>
+    <tr>
+      <th data-field="id" data-visible="false"></th>
+      <th data-sortable="true">Title</th>
+      <th data-sortable="true">Author</th>
+      <th data-sortable="true">Number of Questions</th>
+      <th data-sortable="true">Total Questions Answered</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= book.id %></td>
+      <td><%= book.title %></td>
+      <td><%= book.author %></td>
+      <td><%= book.questions.size %></td>
+      <td><%= book.answer_events.size %></td>
+      <td><%= link_to 'More Info', "/books/#{book.id}/show" %></td>
+    </tr>
+  <% end %>
+</table>

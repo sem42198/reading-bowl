@@ -1,7 +1,8 @@
-<%= navbar_group :align => 'right' do %>
+<%= navbar_group do %>
   <%= navbar_item "Home", '/user_home' %>
   <%= navbar_item 'My Account', "/users/#{user.id}" %>
-  <%= navbar_item "Practice Questions", '/questions' %>
+  <%= navbar_item 'View Books', '/books' %>
+  <%= navbar_item "Practice Questions", '/questions/practice' %>
   <%= navbar_item "Write Questions", '/questions/new' %>
   <%= navbar_item "Logout", '/logout' %>
 <% end %>

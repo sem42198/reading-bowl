@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'questions' => 'questions#index'
-  post 'questions' => 'questions#practice'
+  get 'questions/practice' => 'questions#index'
+  post 'questions/practice' => 'questions#practice'
   get 'questions/:id/show' => 'questions#show'
   post 'questions/:id/star_toggle' => 'questions#star_toggle'
   get 'questions/:id/edit' => 'questions#edit'
@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   post 'questions/new' => 'questions#create'
 
   get 'books' => 'books#index'
-  get 'books/manage' => 'books#manage'
-  get 'books/show/:id' => 'books#show'
+  get 'books/:id/show' => 'books#show'
   get 'books/new' => 'books#new'
   post 'books/new' => 'books#create'
 
@@ -22,13 +21,16 @@ Rails.application.routes.draw do
   get 'users' => 'users#index'
   get 'users/:id' => 'users#show'
   post 'users/:user_id/answers/:question_id' => 'answer_events#create'
+  post 'users/:user_id/books/:book_id' => 'read_events#create'
+  get 'user_home' => 'users#home'
+
+  get 'attendance/:user_id' => 'attendance#show'
+  post 'attendance/:user_id' => 'attendance#create'
 
   get 'account/edit' => 'users#edit'
   post 'account/edit'=> 'users#update'
 
   root :to => 'welcome#index'
-
-  get 'user_home' => 'user_home#new'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

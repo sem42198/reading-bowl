@@ -14,6 +14,7 @@
 //= require popper
 //= require bootstrap
 //= require cocoon
+//= require bootstrap-table
 //= require_tree .
 
 $.ajaxSetup({
@@ -33,6 +34,16 @@ $(function() {
             });
             $(this).css('border', 'solid #0044cc');
             $(this).children('.icon-button').show();
+        });
+    });
+
+    $(".icon-button").each(function () {
+        $(this).click(function (e) {
+            e.stopPropagation();
+            var iconGroup = $(this).parents().find('.icon-group');
+            $(this).parents().find('.icon').css('border', '');
+            iconGroup.find("#value").text('');
+            $(this).hide();
         });
     });
 });

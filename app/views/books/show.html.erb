@@ -1,1 +1,61 @@
 <h1><%= @book.title %></h1>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-3">
+    <h3>Basic Stats</h3>
+    <dl class="dl-horizontal">
+      <dt>Questions</dt>
+      <dd><%= @book.questions.size %></dd>
+
+      <dt>Starred Questions</dt>
+      <dd><%= @book.questions.where(:starred => true).size %></dd>
+
+      <dt>Total Questions Answered</dt>
+      <dd><%= @book.answer_events.size %></dd>
+
+      <dt>Read By</dt>
+      <dd><%= @book.read_events.size %> students</dd>
+    </dl>
+  </div>
+
+  <div class="col-sm-3">
+    <h3>Read By</h3>
+    <ul>
+      <% @book.read_events.each do |ev| %>
+        <li><%= ev.user.name %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="col-sm-6">
+    <h3>Top Students</h3>
+    <table data-toggle="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Questions Answered</th>
+        </tr>
+      </thead>
+      <% @book.top_students(5).each do |student| %>
+        <tr>
+          <td><%= student.name %></td>
+          <td><%= student.questions_answered(@book) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+
+  <div class="col-sm-12">
+    <h3>Questions</h3>
+    <%= render :partial => 'book_questions' %>
+  </div>
+</div>
+
+<br>

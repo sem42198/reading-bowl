@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
 
     if session[:practice_books].empty?
       flash[:danger] = 'No questions found.'
-      return redirect_to '/questions'
+      return redirect_to '/questions/practice'
     end
 
     book = Book.find(session[:practice_books].sample)

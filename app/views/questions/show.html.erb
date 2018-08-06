@@ -1,51 +1,59 @@
-<div class="row">
-  <%= csrf_meta_tag %>
+<%= csrf_meta_tag %>
 
-  <div hidden id="question-id">
-    <%= @question.id %>
+<div hidden id="question-id">
+  <%= @question.id %>
+</div>
+
+<div class="row">
+  <div class="col-sm-3"></div>
+
+  <div class="col-sm-6">
+    <div id="question-card">
+      <div class="front">
+        <div class="question-card-body">
+          <div class="card-text">
+            In the book, <%= @book.title %>, <%= @question.question %>
+          </div>
+        </div>
+      </div>
+      <div class="back">
+        <div class="question-card-body">
+          <div class="card-text">
+            <%= @question.answer %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="right">
+  <div class="col-sm-1">
+    <div style="position: absolute; top: 50%; transform: translateY(-50%);">
+      <%= link_to image_tag('next-button.png', :class => 'button-img'), '/questions/next' %>
+    </div>
+  </div>
+
+  <div class="col-sm-2" align="right">
     <%= link_to image_tag('edit-button.png', :class => 'button-img'), "/questions/#{@question.id}/edit" %>
     <div id="star">
       <%= image_tag 'star.png', :class => 'button-img', :id => 'blank-star' %>
       <%= image_tag 'yellow-star.png', :class => 'button-img', :id => 'yellow-star' %>
     </div>
     <script>
-      <% if @question.starred %>
+        <% if @question.starred %>
         $("#blank-star").hide();
-      <% else %>
+        <% else %>
         $("#yellow-star").hide();
-      <% end %>
+        <% end %>
     </script>
-  </div>
-</div>
-<div class="row">
-  <div id="question-card">
-    <div class="front">
-      <div class="question-card-body">
-        <div class="card-text">
-          In the book, <%= @book.title %>, <%= @question.question %>
-        </div>
-      </div>
-    </div>
-    <div class="back">
-      <div class="question-card-body">
-        <div class="card-text">
-          <%= @question.answer %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div style="position: absolute; left: 78vw; top: 50%; transform: translateY(-50%);">
-    <%= link_to image_tag('next-button.png', :class => 'button-img'), '/questions/next' %>
   </div>
 </div>
 
 <% if user.instructor? %>
   <div class="row">
-    <% icons = User.where(:user_type => :student).collect {|u| [u.id, "#{u.first_name} #{u.last_name}"]} %>
-    <%= icon_group 'answered_by', icons, 'profile-default.png' %>
+    <div class="col-sm-12">
+      <% icons = User.students.collect {|u| [u.id, "#{u.first_name} #{u.last_name}"]} %>
+      <%= icon_group 'answered_by', icons, 'profile-default.png' %>
+    </div>
   </div>
 <% end %>
 

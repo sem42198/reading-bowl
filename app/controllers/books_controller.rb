@@ -1,12 +1,9 @@
 class BooksController < ApplicationController
 
-  before_action :validate_admin, only: [:manage, :new, :create]
+  before_action :validate_admin, only: [:new, :create]
 
   def index
     @books = Book.all
-  end
-
-  def manage
   end
 
   def show

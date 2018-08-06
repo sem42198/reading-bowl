@@ -64,4 +64,9 @@ class UsersController < ApplicationController
   def check_password_match(params)
     params[:password] = nil unless params[:password] == params[:confirm_password]
   end
+
+  def home
+    @user = user
+    redirect_to '/' unless @user.present?
+  end
 end

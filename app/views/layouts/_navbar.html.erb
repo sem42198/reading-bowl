@@ -1,4 +1,4 @@
-<%= navbar brand: 'Reading Bowl', brand_link: '/', fixed: :top, responsive: true do %>
+<%= navbar brand: 'Reading Bowl', brand_link: '/', class: 'navbar navbar-inverse', fixed: :top, responsive: true do %>
   <% current_user = user %>
   <% if current_user.present? %>
     <% if current_user.instructor? %>

@@ -1,7 +1,8 @@
+<% book_id ||= params['book-id'] || cookies[:book_id] %>
 <h1>Write Questions</h1>
 
 <%= bootstrap_form_for Book.new, :url => '/questions/new' do |f| %>
-  <%= f.select :book_id, Book.all.collect {|b| [ b.title, b.id ] }, {:selected => cookies[:book_id]} %>
+  <%= f.select :book_id, Book.all.collect {|b| [ b.title, b.id ] }, {:selected => book_id} %>
   <hr/>
   <fieldset id="questions">
     <%= f.fields_for  :questions do |question| %>

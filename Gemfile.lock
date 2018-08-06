@@ -51,6 +51,7 @@ GEM
       sass (>= 3.5.2)
     bootstrap-navbar (3.0.3)
       gem_config (~> 0.3)
+    bootstrap-table-rails (1.12.1)
     bootstrap_form (4.0.0.alpha1)
       rails (>= 5.0)
     builder (3.2.3)
@@ -191,6 +192,7 @@ DEPENDENCIES
   autoprefixer-rails
   bcrypt (~> 3.1.7)
   bootstrap
+  bootstrap-table-rails
   bootstrap_form (>= 4.0.0.alpha1)
   byebug
   capybara (~> 2.13)

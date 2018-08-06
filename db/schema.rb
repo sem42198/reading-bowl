@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180802011116) do
+ActiveRecord::Schema.define(version: 20180805143547) do
 
   create_table "answer_events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
     t.integer "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "attendances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,13 +42,19 @@ ActiveRecord::Schema.define(version: 20180802011116) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "read_events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "username"
     t.integer "user_type"
     t.string "email"
     t.string "first_name"
     t.string "last_name"
-    t.float "hours_practiced", limit: 24
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
