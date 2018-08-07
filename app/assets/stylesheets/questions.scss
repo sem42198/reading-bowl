@@ -2,24 +2,18 @@
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .question-card-body {
-  height: 60vh;
   width: 100%;
-  //width: 50vw;
-  padding: 1vw;
-  //position: relative;
-  //left: 17vw;
-  //top: 0;
-  //margin: 1vw;
+  padding: 56.25% 1vw 1vw;
   border: thin solid lightgrey;
   background-color: white;
   cursor: pointer;
   .card-text {
-    width: 60%;
+    width: 80%;
     text-align: center;
-    font-size: xx-large;
+    font-size: calc(16px + 1vw);
     position: absolute;
     top: 50%;
-    left: 20%;
+    left: 10%;
     transform: translate(0, -50%);
   }
 }

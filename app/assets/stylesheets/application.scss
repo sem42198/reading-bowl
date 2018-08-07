@@ -22,12 +22,27 @@
 @import "bootstrap-table";
 
 body {
-  background-color: #fffaf0;
+  background-color: #f8f8f8;
 }
 
-//.navbar-inverse .navbar-inner {
-//  background-color: red !important;
-//}
+.btn-primary {
+  background-color: #762228;
+  border-color: #762228;
+}
+
+.btn-primary:hover {
+  background-color: #43161c;
+  border-color: #762228;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #43161c;
+  border-color: #762228;
+}
+
+a {
+  color: #3572b0;
+}
 
 .button-img {
   max-height: 30px;
