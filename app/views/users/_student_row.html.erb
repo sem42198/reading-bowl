@@ -1,0 +1,11 @@
+<tr>
+  <td></td>
+  <td><%= student.id %></td>
+  <td><%= student.username %></td>
+  <td><%= student.name %></td>
+  <td><%= student.read_events.size %></td>
+  <td><%= student.answer_events.size %></td>
+  <td><%= student.attendances.size %></td>
+  <td><%= student.points %></td>
+  <td><%= link_to 'More Info', "/users/#{student.id}" %></td>
+</tr>

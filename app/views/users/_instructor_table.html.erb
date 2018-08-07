@@ -1,0 +1,26 @@
+<div id="instructor-toolbar">
+  <%= link_to 'Add Instructor', '/signup?admin=true', :class => 'btn btn-primary' %>
+</div>
+
+<table id="instructor-table" data-unique-id="id" data-toggle="table" data-search="true" data-toolbar="#instructor-toolbar">
+  <thead>
+  <tr>
+    <th data-field="id" data-visible="false"></th>
+    <th data-sortable="true">Username</th>
+    <th data-sortable="true">Name</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% User.instructors.each do |instructor| %>
+    <tr>
+      <td><%= instructor.id %></td>
+      <td><%= instructor.username %></td>
+      <td><%= instructor.name %></td>
+      <td><%= link_to 'More Info', "/users/#{instructor.id}" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>

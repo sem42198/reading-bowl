@@ -1,0 +1,75 @@
+<div hidden id="user-id"><%= @user.id %></div>
+
+<h1><%= @user.name %></h1>
+
+<% if @user.student? %>
+  <%= link_to 'View Attendance Records', "/attendance/#{@user.id}" %>
+<% end %>
+
+<div class="row">
+
+  <div class="col-sm-3">
+    <h3>Account Info</h3>
+    <%= link_to 'Edit', '/account/edit' if @user == user %>
+    <dl>
+      <dt>Username</dt>
+      <dd><%= @user.username %></dd>
+
+      <dt>Name</dt>
+      <dd><%= @user.name %></dd>
+
+      <dt>Email</dt>
+      <dd><%= @user.email %></dd>
+    </dl>
+  </div>
+
+
+
+    <div class="col-sm-3">
+      <% if @user.student? %>
+        <h3>Books Read</h3>
+        <% books = @user.books %>
+        <% if books.empty? %>
+          <p id="no-books-msg">No books read.</p>
+        <% end %>
+        <ul id="books-read-listing">
+          <% books.each do |book| %>
+            <li><%= book.title %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+    <div class="col-sm-6">
+      <% if @user.student? %>
+        <h3>Top Books</h3>
+        <table data-toggle="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Questions Answered</th>
+            </tr>
+          </thead>
+
+          <% @user.top_books(5).each do |book| %>
+            <tr>
+              <td><%= book.title %></td>
+              <td><%= @user.questions_answered(book) %></td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
+    </div>
+</div>
+
+<div class="row">
+  <% if @user.student? && user.instructor? %>
+    <% unread = @user.unread_books %>
+    <% unless unread.empty? %>
+      <div class="col-sm-12">
+        <h3>Add Books</h3>
+        <%= icon_group 'books-read', unread.collect {|b| [b.id, b.title]}, 'book.png' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

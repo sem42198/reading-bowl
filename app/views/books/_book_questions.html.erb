@@ -1,0 +1,32 @@
+<div id="question-toolbar">
+  <%= link_to 'Write Questions', "/questions/new?book-id=#{@book.id}", :class => 'btn btn-primary' %>
+</div>
+
+<table id="question-table" data-unique-id="id" data-toggle="table" data-search="true" data-toolbar="#question-toolbar">
+  <thead>
+  <tr>
+    <th data-field="id" data-visible="false"></th>
+    <th data-sortable="true">Question</th>
+    <th data-sortable="true">Answer</th>
+    <th data-sortable="true">Starred?</th>
+    <th data-sortable="true">Times Answered</th>
+    <th data-sortable="true">Written By</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @book.questions.each do |question| %>
+    <tr>
+      <td><%= question.id %></td>
+      <td><%= question.question %></td>
+      <td><%= question.answer %></td>
+      <td><%= question.starred ? 'Yes' : 'No' %></td>
+      <td><%= question.answer_events.count %></td>
+      <td><%= User.find(question.user_id).name %></td>
+      <td><%= link_to 'Edit', "/questions/#{question.id}/edit" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>

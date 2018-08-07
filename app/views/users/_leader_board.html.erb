@@ -1,0 +1,24 @@
+<% num ||= 0 %>
+<% num -= 1 %>
+<table data-toggle="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Books Read</th>
+      <th>Questions Answered</th>
+      <th>Practices Attended</th>
+      <th>Total Points</th>
+    </tr>
+  </thead>
+
+  <% leaders = User.students.sort_by {|s| -s.points}[0..num] %>
+  <% leaders.each do |student| %>
+    <tr>
+      <td><%= student.name %></td>
+      <td><%= student.read_events.size %></td>
+      <td><%= student.answer_events.size %></td>
+      <td><%= student.attendances.size %></td>
+      <td><%= student.points %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,10 @@
+<h1>Edit Account Info</h1>
+<%= bootstrap_form_for :user do |f| %>
+  <%= f.email_field :email, class: "input-md" %>
+  <%= f.text_field :first_name, class: "input-md" %>
+  <%= f.text_field :last_name, class: "input-md" %>
+  <%= f.password_field :old_password, class: "input-md" %>
+  <%= f.password_field :password, class: "input-md" %>
+  <%= f.password_field :confirm_password, class: "input-md" %>
+  <%= f.submit 'Update', class: "btn btn-block btn-md btn-primary" %>
+<% end %>

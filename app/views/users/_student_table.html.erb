@@ -1,0 +1,24 @@
+<div id="student-toolbar">
+  <button id="attendance-button" class="btn btn-primary">Take Attendance</button>
+</div>
+<table id="student-table" data-unique-id="id" data-toggle="table" data-search="true" data-toolbar="#student-toolbar">
+  <thead>
+  <tr>
+    <th data-checkbox="true"></th>
+    <th data-field="id" data-visible="false"></th>
+    <th data-field="username" data-sortable="true">Username</th>
+    <th data-field="name" data-sortable="true">Name</th>
+    <th data-field="books-read" data-sortable="true">Books Read</th>
+    <th data-field="questions-answered" data-sortable="true">Questions Answered</th>
+    <th data-field="practices-attended" data-sortable="true">Practices Attended</th>
+    <th data-field="total-points" data-sortable="true">Total Points</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% User.students.each do |student| %>
+    <%= render :partial => 'student_row', :locals => {:student => student} %>
+  <% end %>
+  </tbody>
+</table>

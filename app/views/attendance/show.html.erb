@@ -1,0 +1,6 @@
+<h1>Attendance for <%= @user.name %></h1>
+<ul>
+  <% @attendances.each do |attendance| %>
+    <li><%= attendance.created_at.localtime.strftime '%B %d, %Y at %I:%M %p' %></li>
+  <% end %>
+</ul>

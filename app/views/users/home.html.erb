@@ -1,0 +1,6 @@
+<h1>Welcome <%= @user.first_name %>!</h1>
+<% if @user.student? %>
+  <%= render :partial => 'student_home' %>
+<% else %>
+  <%= render :partial => 'instructor_home' %>
+<% end %>

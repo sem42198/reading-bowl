@@ -1,0 +1,6 @@
+<%= bootstrap_form_for @question, :url => "/questions/#{@question.id}/edit", :method => :post do |f| %>
+  <%= f.select :book_id, Book.all.collect {|b| [ b.title, b.id ] } %>
+  <%= f.text_area :question %>
+  <%= f.text_area :answer %>
+  <%= f.submit 'Save', :method => :post, :class => "btn btn-primary" %>
+<% end %>
