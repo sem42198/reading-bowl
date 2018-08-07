@@ -1,12 +1,22 @@
-<%= navbar brand: 'Reading Bowl', brand_link: '/', class: 'navbar navbar-inverse', fixed: :top, responsive: true do %>
-  <% current_user = user %>
-  <% if current_user.present? %>
-    <% if current_user.instructor? %>
-      <%= render 'layouts/instructor_navbar' %>
-    <% else %>
-      <%= render 'layouts/student_navbar' %>
-    <% end %>
-  <% else %>
-    <%= render :partial => 'layouts/logged_out_navbar' %>
-  <% end %>
-<% end %>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3A3A73;">
+  <a href="/" class="navbar-brand">Reading Bowl</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <ul class="navbar-nav ml-auto">
+      <% current_user = user %>
+      <% if current_user.present? %>
+        <% if current_user.instructor? %>
+          <%= render 'layouts/instructor_navbar' %>
+        <% else %>
+          <%= render 'layouts/student_navbar' %>
+        <% end %>
+      <% else %>
+        <%= render :partial => 'layouts/logged_out_navbar' %>
+      <% end %>
+    </ul>
+  </div>
+</nav>

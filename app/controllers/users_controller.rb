@@ -58,7 +58,7 @@ class UsersController < ApplicationController
     account_params = params.require(:account)
     check_password_match(account_params)
     account_params.permit(:email, :username, :password, :first_name, :last_name,
-                          :user_type, :hours_practiced)
+                          :user_type)
   end
 
   def check_password_match(params)

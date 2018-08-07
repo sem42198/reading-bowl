@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   post 'attendance/:user_id' => 'attendance#create'
 
   get 'account/edit' => 'users#edit'
-  post 'account/edit'=> 'users#update'
+  post 'account/edit' => 'users#update'
 
   root :to => 'welcome#index'
 
