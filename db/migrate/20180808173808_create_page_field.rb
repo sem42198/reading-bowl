@@ -8,14 +8,11 @@ class CreatePageField < ActiveRecord::Migration[5.1]
     Question.reset_column_information
     Question.all.each do |q|
       answer_parts = q.answer.split(' p')
-      answer = answer_parts[0...-1].join(' p')
+      next unless answer_parts.size > 1
       page = answer_parts[-1].to_i
-      if page == 0
-        answer += ' p' + answer_parts[-1]
-      else
-        q.page = page
-      end
-      q.answer = answer
+      next if page == 0
+      q.answer = answer_parts[0...-1].join(' p')
+      q.page = page
       q.save
     end
   end
