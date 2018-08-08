@@ -21,6 +21,11 @@
           <div class="card-text">
             <%= @question.answer %>
           </div>
+          <div class="page-number">
+            <% if @question.page %>
+              Page <%= @question.page %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

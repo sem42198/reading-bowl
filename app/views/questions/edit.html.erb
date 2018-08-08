@@ -2,5 +2,6 @@
   <%= f.select :book_id, Book.all.collect {|b| [ b.title, b.id ] } %>
   <%= f.text_area :question %>
   <%= f.text_area :answer %>
+  <%= f.number_field :page, :min => 1, :step => 1 %>
   <%= f.submit 'Save', :method => :post, :class => "btn btn-primary" %>
 <% end %>

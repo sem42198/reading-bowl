@@ -20,6 +20,24 @@
 
       <dt>Email</dt>
       <dd><%= @user.email %></dd>
+
+      <% if @user.student? %>
+        <dt>What I'm Reading</dt>
+        <dd>
+          <%= link_to 'Update', 'javascript:void(0);', :id => 'reading-update-link' %>
+          <br>
+          <div id="reading-content">
+            <%= @user.currently_reading || 'No information found.' %>
+          </div>
+          <div id="reading-update">
+            <%= bootstrap_form_for :user do |f|  %>
+              <%= f.text_area :currently_reading %>
+              <%= f.submit 'Update', :class => 'btn btn-primary' %>
+            <% end %>
+          </div>
+        </dd>
+      <% end %>
+
     </dl>
   </div>
 

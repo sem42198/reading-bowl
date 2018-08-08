@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   get 'users' => 'users#index'
   get 'users/:id' => 'users#show'
+  post 'users/:id' => 'users#update'
   post 'users/:user_id/answers/:question_id' => 'answer_events#create'
   post 'users/:user_id/books/:book_id' => 'read_events#create'
   get 'user_home' => 'users#home'

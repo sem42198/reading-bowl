@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
 
   def next_question
 
-    if session[:practice_books].empty?
+    if session[:practice_books].nil? || session[:practice_books].empty?
       flash[:danger] = 'No questions found.'
       return redirect_to '/questions/practice'
     end
@@ -92,11 +92,11 @@ class QuestionsController < ApplicationController
   end
 
   def questions_params
-    params.require(:book).permit(questions_attributes: %i[user_id question answer])
+    params.require(:book).permit(questions_attributes: %i[user_id question answer page])
   end
 
   def question_params
-    params.require(:question).permit(:book_id, :question, :answer)
+    params.require(:question).permit(:book_id, :question, :answer, :page)
   end
 
   def practice_data

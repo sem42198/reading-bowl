@@ -22,4 +22,12 @@ $(function () {
         }
         location.reload();
     });
+
+    $("#reading-update-link").click(function () {
+        $("#reading-content").toggle();
+        $("#reading-update").toggle();
+    });
+
+    $("#reading-update").hide();
+
 });
