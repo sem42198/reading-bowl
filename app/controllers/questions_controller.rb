@@ -96,7 +96,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:book_id, :question, :answer, :page)
+    params.require(:question).permit(:book_id, :question, :answer, :page, :starred)
   end
 
   def practice_data

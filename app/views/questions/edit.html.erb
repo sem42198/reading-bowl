@@ -3,5 +3,7 @@
   <%= f.text_area :question %>
   <%= f.text_area :answer %>
   <%= f.number_field :page, :min => 1, :step => 1 %>
+  <%= f.check_box :starred %>
+  <br>
   <%= f.submit 'Save', :method => :post, :class => "btn btn-primary" %>
 <% end %>

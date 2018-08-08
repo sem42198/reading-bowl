@@ -8,6 +8,7 @@
     <th data-field="id" data-visible="false"></th>
     <th data-sortable="true">Question</th>
     <th data-sortable="true">Answer</th>
+    <th data-sortable="true">Page</th>
     <th data-sortable="true">Starred?</th>
     <th data-sortable="true">Times Answered</th>
     <th data-sortable="true">Written By</th>
@@ -21,6 +22,7 @@
       <td><%= question.id %></td>
       <td><%= question.question %></td>
       <td><%= question.answer %></td>
+      <td><%= question.page %></td>
       <td><%= question.starred ? 'Yes' : 'No' %></td>
       <td><%= question.answer_events.count %></td>
       <td><%= User.find(question.user_id).name %></td>

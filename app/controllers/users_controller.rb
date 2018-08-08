@@ -38,22 +38,23 @@ class UsersController < ApplicationController
   def update
     skip_password = false
     if params[:id]
-      validate_admin
       @user = User.find(params[:id])
       skip_password = true
-    else
-      @user = user
     end
-    data = update_params(skip_password)
-    if data && @user.update_attributes(data)
-      flash[:success] = 'Account updated.'
-      redirect_to "/users/#{@user.id}"
-    else
-      flash[:danger] = 'Update failed.'
-      if skip_password
-        render "/users/#{@user.id}"
+    @user ||= user
+
+    if @user == user || validate_admin
+      data = update_params(skip_password)
+      if data && @user.update_attributes(data)
+        flash[:success] = 'Account updated.'
+        redirect_to "/users/#{@user.id}"
       else
-        render :edit
+        flash[:danger] = 'Update failed.'
+        if skip_password
+          render "/users/#{@user.id}"
+        else
+          render :edit
+        end
       end
     end
   end
