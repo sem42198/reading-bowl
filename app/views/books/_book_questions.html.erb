@@ -13,6 +13,9 @@
     <th data-sortable="true">Times Answered</th>
     <th data-sortable="true">Written By</th>
     <th></th>
+    <% if user.instructor? %>
+      <th></th>
+    <% end %>
   </tr>
   </thead>
 
@@ -27,6 +30,9 @@
       <td><%= question.answer_events.count %></td>
       <td><%= User.find(question.user_id).name %></td>
       <td><%= link_to 'Edit', "/questions/#{question.id}/edit" %></td>
+      <% if user.instructor? %>
+        <td><%= link_to 'Delete', "/questions/#{question.id}/delete" %></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

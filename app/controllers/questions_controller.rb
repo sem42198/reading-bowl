@@ -9,7 +9,10 @@ class QuestionsController < ApplicationController
   def create
     book = Book.find(book_id_param)
     cookies[:book_id] = book.id
-    render :new if book.update(questions_params)
+    return unless book.update(questions_params)
+
+    flash[:success] = 'Question(s) saved'
+    render :new
   end
 
   def index; end
@@ -24,11 +27,9 @@ class QuestionsController < ApplicationController
     session[:starred_only] = data[:starred_only] || false
 
     next_question
-
   end
 
   def next_question
-
     if session[:practice_books].nil? || session[:practice_books].empty?
       flash[:danger] = 'No questions found.'
       return redirect_to '/questions/practice'
@@ -56,11 +57,18 @@ class QuestionsController < ApplicationController
     @book = @question.book
   end
 
+  def delete
+    @question = Question.find(params[:id])
+    book = @question.book
+    @question.delete
+    redirect_back(fallback_location: "/books/#{book.id}/show")
+  end
+
   def update
     @question = Question.find(params[:id])
     if @question.update(question_params)
       flash[:success] = 'Question updated.'
-      redirect_to "/questions/#{params[:id]}/show"
+      redirect_back fallback_location: "/questions/#{@question.id}/edit"
     else
       flash[:danger] = 'Could not update question.'
       redirect_to "/questions/#{params[:id]}/edit"
