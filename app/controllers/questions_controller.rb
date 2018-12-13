@@ -18,6 +18,9 @@ class QuestionsController < ApplicationController
   def index; end
 
   def practice
+
+    cookies[:practicing] = true
+
     data = practice_data
     books = data[:books]
     books.delete('')
@@ -68,7 +71,11 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     if @question.update(question_params)
       flash[:success] = 'Question updated.'
-      redirect_back fallback_location: "/questions/#{@question.id}/edit"
+      if cookies[:practicing].present? && cookies[:practicing] == 'true'
+        redirect_to "/questions/#{@question.id}/show"
+      else
+        redirect_to "/books/#{@question.book_id}/show"
+      end
     else
       flash[:danger] = 'Could not update question.'
       redirect_to "/questions/#{params[:id]}/edit"

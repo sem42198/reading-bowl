@@ -7,6 +7,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    cookies[:practicing] = false
     @book = Book.find(params[:id])
   end
 

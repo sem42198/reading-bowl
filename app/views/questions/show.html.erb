@@ -56,7 +56,7 @@
 <% if user.instructor? %>
   <div class="row">
     <div class="col-sm-12">
-      <% icons = User.students.collect {|u| [u.id, "#{u.first_name} #{u.last_name}"]} %>
+      <% icons = User.students.sort_by {|s| -s.answer_events.size}.collect {|u| [u.id, "#{u.first_name} #{u.last_name}"]} %>
       <%= icon_group 'answered_by', icons, 'profile-default.png' %>
     </div>
   </div>
