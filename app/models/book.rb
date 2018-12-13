@@ -12,8 +12,10 @@ class Book < ApplicationRecord
 
   def answer_events
     events = []
+    questions = Question.all.collect(&:id)
     AnswerEvent.all.each do |ans|
-      events.push(ans) if Question.find(ans.question_id).book_id == id
+      events.push(ans) if questions.include?(ans.question_id) &&
+                          Question.find(ans.question_id).book_id == id
     end
     events
   end
