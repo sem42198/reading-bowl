@@ -26,15 +26,17 @@ class User < ApplicationRecord
 
   def books
     return nil if instructor?
+
     read = []
     read_events.each do |ev|
       read.push(ev.book_id)
     end
-    read.collect {|id| Book.find(id)}
+    read.collect { |id| Book.find(id) }
   end
 
   def unread_books
     return nil if instructor?
+
     read = books.collect(&:id)
     unread = []
     Book.all.each do |book|
@@ -44,19 +46,19 @@ class User < ApplicationRecord
   end
 
   def questions_answered(book)
-    book.answer_events.select {|ev| ev.user_id == id}.size
+    book.answer_events.select { |ev| ev.user_id == id }.size
   end
 
   def top_books(num = 0)
     num -= 1
-    Book.all.sort_by {|book| -questions_answered(book)}[0..num]
+    Book.all.sort_by { |book| -questions_answered(book) }[0..num]
   end
-  
+
   def self.students
-    User.where(:user_type => :student)
+    User.where(user_type: :student)
   end
 
   def self.instructors
-    User.where(:user_type => :instructor)
+    User.where(user_type: :instructor)
   end
 end

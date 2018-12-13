@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
-
-  before_action :validate_admin, only: [:new, :create]
+  before_action :validate_admin, only: %i[new create]
 
   def index
     @books = Book.all
@@ -11,8 +10,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
-  def new
-  end
+  def new; end
 
   def create
     @book = Book.new(book_params)

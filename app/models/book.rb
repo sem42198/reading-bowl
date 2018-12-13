@@ -1,14 +1,13 @@
 class Book < ApplicationRecord
-
   has_many :questions
   has_many :read_events
 
   accepts_nested_attributes_for :questions
 
-  validates_uniqueness_of :title, :scope => [:author]
+  validates_uniqueness_of :title, scope: [:author]
 
-  validates :title, :presence => true
-  validates :author, :presence => true
+  validates :title, presence: true
+  validates :author, presence: true
 
   def answer_events
     events = []
@@ -21,7 +20,7 @@ class Book < ApplicationRecord
   end
 
   def top_students(num = 0)
-    num -=1
-    User.students.sort_by {|s| -s.questions_answered(self)}[0..num]
+    num -= 1
+    User.students.sort_by { |s| -s.questions_answered(self) }[0..num]
   end
 end
