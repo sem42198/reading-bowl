@@ -24,8 +24,8 @@ class QuestionsController < ApplicationController
     books.delete('')
     books ||= []
     session[:practice_books] = books
-    # session[:question_queue] = {}
     session[:starred_only] = data[:starred_only] || false
+    user.clear_question_queue
 
     next_question
   end

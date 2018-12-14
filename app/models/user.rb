@@ -71,16 +71,19 @@ class User < ApplicationRecord
               book.questions.collect(&:id).shuffle
             end
     question_queue[book.id] = queue
-    puts question_queue
     save
     !queue.empty?
   end
 
   def pop_question(book_id)
-    puts "Queue: #{question_queue}"
     q = question_queue[book_id].pop
     save
     q
+  end
+
+  def clear_question_queue
+    self.question_queue = {}
+    save
   end
 
 end

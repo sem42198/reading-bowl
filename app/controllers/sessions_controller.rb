@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    user.clear_question_queue
     reset_session
     redirect_to '/'
   end
