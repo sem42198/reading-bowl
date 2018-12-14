@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
     books.delete('')
     books ||= []
     session[:practice_books] = books
-    session[:question_queue] = {}
+    # session[:question_queue] = {}
     session[:starred_only] = data[:starred_only] || false
 
     next_question
@@ -37,14 +37,15 @@ class QuestionsController < ApplicationController
     end
 
     book = Book.find(session[:practice_books].sample)
-    question_queue = session[:question_queue][book.id.to_s]
+    question_queue = user.question_queue[book.id.to_s]
 
     unless question_queue && !question_queue.empty?
-      build_question_queue(book)
-      question_queue = session[:question_queue][book.id]
+      unless user.build_question_queue(book, session[:starred_only] == '1')
+        session[:practice_books].delete(book.id.to_s)
+      end
     end
 
-    question_id = question_queue.pop
+    question_id = user.pop_question(book.id)
 
     if question_id
       redirect_to "/questions/#{question_id}/show"
@@ -85,17 +86,6 @@ class QuestionsController < ApplicationController
   end
 
   private
-
-  def build_question_queue(book)
-    queue = if session[:starred_only] == '1'
-              book.questions.where(starred: true).collect(&:id).shuffle
-            else
-              book.questions.collect(&:id).shuffle
-            end
-    session[:practice_books].delete(book.id.to_s) if queue.empty?
-    session[:question_queue][book.id] = queue
-    !queue.empty?
-  end
 
   def book_id_param
     params.require(:book).permit(:book_id)[:book_id]

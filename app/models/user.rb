@@ -15,6 +15,8 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :password_digest, presence: true
 
+  serialize :question_queue, Hash
+
   def name
     "#{first_name} #{last_name}"
   end
@@ -61,4 +63,24 @@ class User < ApplicationRecord
   def self.instructors
     User.where(user_type: :instructor)
   end
+
+  def build_question_queue(book, starred_only)
+    queue = if starred_only
+              book.questions.where(starred: true).collect(&:id).shuffle
+            else
+              book.questions.collect(&:id).shuffle
+            end
+    question_queue[book.id] = queue
+    puts question_queue
+    save
+    !queue.empty?
+  end
+
+  def pop_question(book_id)
+    puts "Queue: #{question_queue}"
+    q = question_queue[book_id].pop
+    save
+    q
+  end
+
 end
