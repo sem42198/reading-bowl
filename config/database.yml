@@ -50,4 +50,5 @@ test:
 production:
   <<: *default
   database: ReadingBowlProduction
+  username: <%= ENV['READING-BOWL_DATABASE_USERNAME'] %>
   password: <%= ENV['READING-BOWL_DATABASE_PASSWORD'] %>
