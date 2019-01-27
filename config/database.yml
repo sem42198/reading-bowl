@@ -15,7 +15,6 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: rb_user
   password: rb
-  host: 127.0.0.1
 
 development:
   <<: *default
