@@ -16,6 +16,7 @@ default: &default
   username: rb_user
   password: rb
 
+
 development:
   <<: *default
   database: ReadingBowlDev
@@ -49,4 +50,4 @@ test:
 production:
   <<: *default
   database: ReadingBowlProduction
-  password: <%= ENV['DATA-DICTIONARY_DATABASE_PASSWORD'] %>
+  password: <%= ENV['READING-BOWL_DATABASE_PASSWORD'] %>
