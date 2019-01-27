@@ -22,3 +22,5 @@
 config/secrets.yml.key
 
 .idea/
+
+/public/assets/.sprockets-manifest-*.json
