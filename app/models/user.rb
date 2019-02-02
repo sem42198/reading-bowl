@@ -8,6 +8,7 @@ class User < ApplicationRecord
   enum user_type: %i[student instructor]
 
   has_secure_password
+  validates_confirmation_of :password
 
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true

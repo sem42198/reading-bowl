@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def update
     skip_password = false
-    if params[:id]
+    if params[:id] && validate_admin
       @user = User.find(params[:id])
       skip_password = true
     end
@@ -45,7 +45,13 @@ class UsersController < ApplicationController
 
     if @user == user || validate_admin
       data = update_params(skip_password)
-      if data && @user.update_attributes(data)
+
+      unless data
+        flash[:danger] = 'Incorrect current password'
+        return render :edit
+      end
+
+      if @user.update_attributes(data)
         flash[:success] = 'Account updated.'
         redirect_to "/users/#{@user.id}"
       else
@@ -60,21 +66,16 @@ class UsersController < ApplicationController
   end
 
   def update_params(skip_password = false)
-    update_params = params.require(:user)
-    return nil unless @user.authenticate(update_params[:old_password]) || skip_password
-    check_password_match(update_params) unless skip_password
-    update_params.permit(:email, :first_name, :last_name, :password, :currently_reading)
+    return nil unless @user.authenticate(params[:user][:old_password]) || skip_password
+
+    params.require(:user).permit(:email, :first_name, :last_name, :password,
+                                 :password_confirmation, :currently_reading)
   end
 
   def account_params
-    account_params = params.require(:account)
-    check_password_match(account_params)
-    account_params.permit(:email, :username, :password, :first_name, :last_name,
-                          :user_type)
-  end
-
-  def check_password_match(params)
-    params[:password] = nil unless params[:password] == params[:confirm_password]
+    params.require(:user).permit(:user_type, :email, :username, :password,
+                                    :password_confirmation, :first_name,
+                                    :last_name)
   end
 
   def home
