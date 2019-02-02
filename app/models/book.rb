@@ -1,6 +1,8 @@
 class Book < ApplicationRecord
-  has_many :questions
-  has_many :read_events
+  has_many :questions, dependent: :destroy
+  has_many :read_events, dependent: :destroy
+  has_many :readers, through: :read_events
+  has_many :answer_events, through: :questions
 
   accepts_nested_attributes_for :questions
 
@@ -9,15 +11,6 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :author, presence: true
 
-  def answer_events
-    events = []
-    questions = Question.all.collect(&:id)
-    AnswerEvent.all.each do |ans|
-      events.push(ans) if questions.include?(ans.question_id) &&
-                          Question.find(ans.question_id).book_id == id
-    end
-    events
-  end
 
   def top_students(num = 0)
     num -= 1

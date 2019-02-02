@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   has_many :questions
-  has_many :answer_events
-  has_many :read_events
-  has_many :attendances
+  has_many :answer_events, dependent: :destroy
+  has_many :read_events, dependent: :destroy
+  has_many :attendances, dependent: :destroy
+  has_many :books, through: :read_events
 
   enum user_type: %i[student instructor]
 
@@ -26,25 +27,8 @@ class User < ApplicationRecord
     answer_events.size + read_events.size * 10 + attendances.size
   end
 
-  def books
-    return nil if instructor?
-
-    read = []
-    read_events.each do |ev|
-      read.push(ev.book_id)
-    end
-    read.collect { |id| Book.find(id) }
-  end
-
   def unread_books
-    return nil if instructor?
-
-    read = books.collect(&:id)
-    unread = []
-    Book.all.each do |book|
-      unread.push book unless read.include? book.id
-    end
-    unread
+    Book.all - books
   end
 
   def questions_answered(book)

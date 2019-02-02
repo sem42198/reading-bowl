@@ -1,11 +1,9 @@
 class AnswerEvent < ApplicationRecord
 
-  has_one :question
-  belongs_to :user
+  belongs_to :question
+  belongs_to :answerer, foreign_key: :user_id, class_name: 'User'
+  has_one :book, through: :question
 
-  validates :user_id, :presence => true
+  validates :user_id, presence: true
 
-  def book
-    question.book
-  end
 end

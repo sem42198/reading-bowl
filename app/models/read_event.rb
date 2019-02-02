@@ -1,7 +1,7 @@
 class ReadEvent < ApplicationRecord
 
-  has_one :book
-  belongs_to :user
+  belongs_to :book
+  belongs_to :reader, class_name: 'User', foreign_key: :user_id
 
   validates :user_id, :presence => true
   validates :book_id, :presence => true

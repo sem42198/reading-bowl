@@ -23,8 +23,8 @@
   <div class="col-sm-3">
     <h3>Read By</h3>
     <ul>
-      <% @book.read_events.each do |ev| %>
-        <li><%= ev.user.name %></li>
+      <% @book.readers.each do |student| %>
+        <li><%= student.name %></li>
       <% end %>
     </ul>
   </div>
