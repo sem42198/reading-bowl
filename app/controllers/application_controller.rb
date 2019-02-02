@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
     render 'layouts/permission_denied' unless is_admin
     is_admin
   end
+
+  def errors_for(record)
+    record.errors.full_messages.join ', '
+  end
 end

@@ -15,8 +15,10 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
+      flash[:success] = 'Book saved'
       redirect_to "/books/#{@book.id}/show"
     else
+      flash[:danger] = errors_for(@book)
       render :new
     end
   end

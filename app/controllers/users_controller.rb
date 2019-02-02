@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         session[:user_id] ||= @user.id
         redirect_to '/user_home'
       else
-        flash[:danger] = 'Error creating account.'
+        flash[:danger] = errors_for @user
         render :new
       end
     end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
         flash[:success] = 'Account updated.'
         redirect_to "/users/#{@user.id}"
       else
-        flash[:danger] = 'Update failed.'
+        flash[:danger] = errors_for(@user)
         if skip_password
           render "/users/#{@user.id}"
         else

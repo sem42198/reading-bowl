@@ -77,11 +77,11 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-    if @question.update(question_params)
+    if @question.update question_params
       flash[:success] = 'Question updated.'
       redirect_to session.delete(:return_to)
     else
-      flash[:danger] = 'Could not update question.'
+      flash[:danger] = errors_for(@question)
       redirect_to "/questions/#{params[:id]}/edit"
     end
   end
@@ -89,8 +89,10 @@ class QuestionsController < ApplicationController
   def star_toggle
     @question = Question.find(params[:id])
     @question.starred = !@question.starred
-    flash[:danger] = 'Error saving.' unless @question.save
-    puts 'Called toggle star!'
+    unless @question.save
+      flash[:danger] = errors_for(@question)
+      render :show
+    end
   end
 
   private
