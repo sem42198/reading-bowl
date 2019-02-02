@@ -10,6 +10,6 @@ class AttendanceController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
-    @attendances = Attendance.where(:user_id => @user.id)
+    @attendances = @user.attendances
   end
 end
