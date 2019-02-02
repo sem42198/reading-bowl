@@ -40,7 +40,7 @@ class QuestionsController < ApplicationController
 
   def next_question
     if session[:practice_books].nil? || session[:practice_books].empty?
-      flash[:danger] = 'No questions founAttendance.where(:user_id => @user.id)d.'
+      flash[:danger] = 'No questions found.'
       return redirect_to '/questions/practice'
     end
 
