@@ -54,9 +54,10 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'autoprefixer-rails'
 gem 'bootstrap'
-gem 'bootstrap-table-rails'
+gem 'bootstrap-table-rails', '~> 1.12.0'
 gem 'bootstrap_form', '>= 4.0.0.alpha1'
 gem 'rails_bootstrap_navbar'
+gem 'sprockets', '~> 3.7.0'
 
 gem 'cocoon'
 gem 'jquery-rails'
