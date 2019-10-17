@@ -8,7 +8,7 @@ end
 ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 6.0.0'
 # Use mysql as the database for Active Record
 # gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 gem 'pg'
@@ -54,7 +54,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'autoprefixer-rails'
 gem 'bootstrap'
-gem 'bootstrap-table-rails', '~> 1.12.0'
+gem 'bootstrap-table-rails', '1.12.1'
 gem 'bootstrap_form', '>= 4.0.0.alpha1'
 gem 'rails_bootstrap_navbar'
 gem 'sprockets', '~> 3.7.0'
