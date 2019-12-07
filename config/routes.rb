@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'questions/next' => 'questions#next_question'
   get 'questions/new' => 'questions#new'
   post 'questions/new' => 'questions#create'
+  get 'questions/import' => 'questions#import'
+  post 'questions/import' => 'questions#import_create'
 
   get 'books' => 'books#index'
   get 'books/:id/show' => 'books#show'

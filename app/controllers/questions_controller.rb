@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
+
+  before_action :validate_admin, :only => [:import, :import_create]
+
   def show
     @question = Question.find(params[:id])
     @book = @question.book
@@ -22,6 +25,28 @@ class QuestionsController < ApplicationController
       @book = Book.new questions_params
     end
     render :new
+  end
+
+  def import
+    @book = Book.new
+  end
+
+  def import_create
+    id = params[:book][:book_id]
+    book = Book.find(id)
+    cookies[:book_id] = id
+    exported_questions = params.require(:book).require(:questions)
+    questions = exported_questions.split("\n").collect do |question|
+      q, a = question.split '---'
+      {user_id: session[:user_id], question: q, answer: a}
+    end
+    if book.update(questions_attributes: questions)
+      flash[:success] = 'Question(s) imported'
+    else
+      flash[:danger] = book.errors.full_messages.join ', '
+    end
+    @book = Book.new
+    render :import
   end
 
   def index; end

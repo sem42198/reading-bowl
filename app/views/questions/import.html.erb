@@ -1,0 +1,9 @@
+<% book_id ||= params['book-id'] || cookies[:book_id] %>
+<h1>Import Questions</h1>
+
+<%= bootstrap_form_for @book, :url => '/questions/import' do |f| %>
+  <%= f.select :book_id, Book.all.collect {|b| [ b.title, b.id ] }, {:selected => book_id} %>
+  <%= f.text_area :questions, :value => nil %>
+  <%= f.submit "Submit", :method => :post, :class => "btn btn-primary" %>
+<% end %>
+
