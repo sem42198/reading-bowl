@@ -9,12 +9,26 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
 #
+#default: &default
+#  adapter: postgresql
+#  encoding: unicode
+#  host: db
+#  username: <%#= Rails.application.credentials.dig(:db, :username) %>
+#  password: <%#= Rails.application.credentials.dig(:db, :password) %>
+#  pool: <%#= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+#development:
+#  <<: *default
+#  database: rails_7_with_docker_development
+
+
 default: &default
   adapter: postgresql
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: rb_user
-  password: rb
+  username: postgres
+  password: postgres
+  host: db
 
 
 development:
