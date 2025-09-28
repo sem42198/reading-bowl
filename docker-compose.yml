@@ -17,7 +17,7 @@ services:
     profiles:
       - prod
   rails-prod:
-    build: ./
+    image: 'sem421/reading-bowl:latest'
     ports:
       - '80:3000'
     environment:
