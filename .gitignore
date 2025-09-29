@@ -27,3 +27,4 @@ config/secrets.yml.key
 
 env/.env
 db/*.sqlite3*
+*.sql
